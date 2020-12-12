@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinJar", "CoinJar\CoinJar.csproj", "{68732150-EAA9-4C1E-AF2C-90B24EE8D68B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinJar.DataModels", "CoinJar.DataModels\CoinJar.DataModels.csproj", "{3132DF0A-F88E-440A-B636-869976963CC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinJar.Logic", "CoinJar.Logic\CoinJar.Logic.csproj", "{7874B113-F73A-426D-9F69-CCC56FFF647F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinJar.Tests", "CoinJar.Tests\CoinJar.Tests.csproj", "{420C3E66-2109-4050-B6B7-A582ED132566}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{68732150-EAA9-4C1E-AF2C-90B24EE8D68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68732150-EAA9-4C1E-AF2C-90B24EE8D68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68732150-EAA9-4C1E-AF2C-90B24EE8D68B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3132DF0A-F88E-440A-B636-869976963CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3132DF0A-F88E-440A-B636-869976963CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3132DF0A-F88E-440A-B636-869976963CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3132DF0A-F88E-440A-B636-869976963CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7874B113-F73A-426D-9F69-CCC56FFF647F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7874B113-F73A-426D-9F69-CCC56FFF647F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7874B113-F73A-426D-9F69-CCC56FFF647F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7874B113-F73A-426D-9F69-CCC56FFF647F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420C3E66-2109-4050-B6B7-A582ED132566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420C3E66-2109-4050-B6B7-A582ED132566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420C3E66-2109-4050-B6B7-A582ED132566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420C3E66-2109-4050-B6B7-A582ED132566}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

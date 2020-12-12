@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using CoinJar.Logic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoinJar.Controllers
@@ -10,7 +8,8 @@ namespace CoinJar.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+
+
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {

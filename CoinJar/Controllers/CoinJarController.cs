@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using CoinJar.DataModels.Models;
+using CoinJar.Logic.Implementation;
 using CoinJar.Logic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +18,10 @@ namespace CoinJar.Controllers
             coinJar.AddCoin(new Coin() { Amount = 1, Volume= 0.00845350563972975M });
             coinJar.AddCoin(new Coin() { Amount = 1, Volume = 0.00845350563972975M });
             coinJar.AddCoin(new Coin() { Amount = 1, Volume = 0.00845350563972975M });
-            coinJar.AddCoin(new Coin() { Amount = 1, Volume = 0.00845350563972975M });
-            coinJar.AddCoin(new Coin() { Amount = 1, Volume = 0.00845350563972975M });
+            
             //END FOR TEST PURPOSES
-
-            if (_coinJar != null)
+                
+            if (coinJar != null)
             {
                 _coinJar = coinJar;
             }
@@ -33,35 +31,47 @@ namespace CoinJar.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> AddCoin()
-        {
-            return null;
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<ICoinJar> AddCoin(Coin coin)
         {
+            try
+            {
+                this._coinJar.AddCoin(coin);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
+            return Ok(_coinJar);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        [HttpGet]
+        public ActionResult<decimal> GetTotalAmount()
         {
+            try
+            {
+                return Ok(_coinJar.GetTotalAmount());
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+
+        [HttpGet]
+        public ActionResult Reset()
         {
+            try
+            {
+                _coinJar.Reset();
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace CoinJar.DataModels.Models
+namespace CoinJar.Logic.Implementation
 {
     public class Coin : ICoin
     {

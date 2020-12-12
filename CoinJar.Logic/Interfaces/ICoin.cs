@@ -8,5 +8,7 @@ namespace CoinJar.Logic.Interfaces
     {
         decimal Amount { get; set; }
         decimal Volume { get; set; }
+
+        bool IsValidCoin();
     }
 }

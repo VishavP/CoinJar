@@ -1,6 +1,8 @@
 ﻿using CoinJar.Logic.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
 
 namespace CoinJar.Logic.Implementation
@@ -16,17 +18,15 @@ namespace CoinJar.Logic.Implementation
 
         public void AddCoin(ICoin coin)
         {
-            _coins.Add(coin);
+            if (coin.IsValidCoin() && _coins.Sum(x=>x.Volume)+coin.Volume <= 42)
+            {
+                _coins.Add(coin);
+            }
         }
 
         public decimal GetTotalAmount()
         {
-            decimal sum = 0;
-            foreach(var c in _coins)
-            {
-                sum += c.Amount;
-            }
-            return sum;
+            return _coins.Sum(x =>x.Amount);
         }
 
         public void Reset()

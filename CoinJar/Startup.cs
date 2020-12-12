@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace CoinJar
 {
@@ -25,8 +28,11 @@ namespace CoinJar
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CoinJar API", Version = "v1" });
-                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); //This line
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CoinJar API", Version = "v1", Description = "<b>CoinJar API: 3 functions, (POST)Adding a coin, (GET)Getting the TotalAmount, (PUT)Resetting the coinJar" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";//This line
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
             services.AddTransient<ICoinJar, Logic.Implementation.CoinJar>();
             services.AddTransient<ICoin, Coin>();

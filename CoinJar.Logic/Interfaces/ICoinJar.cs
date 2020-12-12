@@ -8,6 +8,8 @@ namespace CoinJar.Logic.Interfaces
     {
         void AddCoin(ICoin coin);
         decimal GetTotalAmount();
+        decimal GetTotalVolume();
         void Reset();
+
     }
 }

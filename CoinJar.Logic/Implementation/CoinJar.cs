@@ -26,7 +26,7 @@ namespace CoinJar.Logic.Implementation
 
         public void AddCoin(ICoin coin)
         {
-            if (coin.IsValidCoin() && _coins.Sum(x=>x.Volume)+coin.Volume <= 42)
+            if (coin.IsValidCoin())
             {
                 switch(coin.Amount)
                 {
@@ -54,13 +54,29 @@ namespace CoinJar.Logic.Implementation
                         coin.Volume = 0.2738935827272439M;
                         break;
                 }
-                _coins.Add(coin);
+                if (_coins.Sum(x => x.Volume) + coin.Volume <= 42)
+                {
+                    _coins.Add(coin);
+                }
+                else
+                {
+                    throw new InvalidOperationException($"Coinjar is full. Cannot add coin: {coin.Amount}USD");
+                }
+            }
+            else
+            {
+                throw new InvalidOperationException($"Invalid coin: {coin.Amount}USD");
             }
         }
 
         public decimal GetTotalAmount()
         {
             return _coins.Sum(x =>x.Amount);
+        }
+
+        public decimal GetTotalVolume()
+        {
+            return _coins.Sum(x => x.Volume);
         }
 
         public void Reset()

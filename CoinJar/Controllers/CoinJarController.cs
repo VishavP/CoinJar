@@ -18,7 +18,6 @@ namespace CoinJar.Controllers
             coinJar.AddCoin(new Coin() { Amount = 1, Volume= 0.00845350563972975M });
             coinJar.AddCoin(new Coin() { Amount = 1, Volume = 0.00845350563972975M });
             coinJar.AddCoin(new Coin() { Amount = 1, Volume = 0.00845350563972975M });
-            
             //END FOR TEST PURPOSES
                 
             if (coinJar != null)
@@ -32,10 +31,14 @@ namespace CoinJar.Controllers
         }
 
         [HttpPost]
-        public ActionResult<ICoinJar> AddCoin(Coin coin)
+        ///<remarks>
+        ///Adds a coin to the coinjar
+        ///</remarks>
+        public ActionResult<ICoinJar> AddCoin(decimal amount)
         {
             try
             {
+                Coin coin = new Coin() { Amount = amount };
                 this._coinJar.AddCoin(coin);
             }
             catch(Exception e)
@@ -47,6 +50,9 @@ namespace CoinJar.Controllers
 
 
         [HttpGet]
+        ///<remarks>
+        ///Gets the total amount of money in the coinjar
+        ///</remarks>
         public ActionResult<decimal> GetTotalAmount()
         {
             try
@@ -60,7 +66,10 @@ namespace CoinJar.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPut]
+        ///<remarks>
+        ///resets the coinJar
+        ///</remarks>
         public ActionResult Reset()
         {
             try

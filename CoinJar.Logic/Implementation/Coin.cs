@@ -10,7 +10,7 @@ namespace CoinJar.Logic.Implementation
     {
         [Required]
         public decimal Amount { get;set; }
-        [Required]
+        
         public decimal Volume { get;set; }
 
         public bool IsValidCoin()
